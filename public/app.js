@@ -1,239 +1,277 @@
 const discordUrl = "https://discord.gg/fBs5amQQUR";
 
-const games = [
+const services = [
   {
+    index: "01",
+    title: "Roblox Games",
+    text:
+      "We build complete Roblox experiences with clean UI, readable systems, and worlds that feel made with care."
+  },
+  {
+    index: "02",
     title: "Sealcoating Simulator",
-    status: "In development",
-    type: "Realistic work simulator",
-    image: "/assets/sealcoating-simulator.png",
-    summary:
-      "A Roblox simulator built around clean asphalt prep, smooth sealcoating passes, satisfying upgrades, and realistic job-site flow.",
-    details: ["Detailed lots", "Equipment progression", "Before-and-after results"]
-  }
-];
-
-const sneakPeeks = [
-  {
-    title: "Parking Lot Jobs",
     text:
-      "Early maps are focused on believable parking lots, driveways, and commercial spaces with a clear sense of scale."
+      "Our first project focuses on realistic asphalt jobs, tool progression, satisfying upgrades, and polished job sites."
   },
   {
-    title: "Tool Feel",
+    index: "03",
+    title: "Realistic Worlds",
     text:
-      "We are tuning equipment so every pass feels smooth, readable, and rewarding instead of rushed or weightless."
+      "Lighting, materials, map scale, props, vehicles, and atmosphere matter because the game should look worth playing."
   },
   {
-    title: "Visual Polish",
+    index: "04",
+    title: "Gameplay Systems",
     text:
-      "Lighting, materials, water-dark asphalt, cones, vehicles, and job props are being built to make each area look sharp."
+      "Progression, equipment, rewards, and feedback are designed so each session feels smooth instead of random."
+  },
+  {
+    index: "05",
+    title: "Sneakpeeks",
+    text:
+      "We share development previews, early looks, and progress updates with the community as the game grows."
+  },
+  {
+    index: "06",
+    title: "Long-Term Updates",
+    text:
+      "Ocean Wave Studio is built around improving games over time with feedback, polish, testing, and new content."
   }
 ];
 
 const updates = [
   {
-    date: "July 2026",
-    title: "Ocean Wave Studio Rebrand",
+    label: "Studio",
+    title: "Ocean Wave Studio",
     text:
-      "The studio is now focused fully on Roblox games and long-term community-first experiences."
+      "A Roblox game studio focused on realistic, good-looking experiences with clean systems and strong visual polish."
   },
   {
-    date: "July 2026",
-    title: "Sealcoating Simulator Announced",
+    label: "Game",
+    title: "Sealcoating Simulator",
     text:
-      "Our first listed game is Sealcoating Simulator, a realistic Roblox job simulator with satisfying progression."
+      "Transform rough lots into clean blacktop, upgrade equipment, and build a sealcoating business through detailed jobs."
   },
   {
-    date: "Coming Soon",
-    title: "More Sneakpeeks",
+    label: "Community",
+    title: "Discord sneakpeeks",
     text:
-      "Screens, development previews, and testing news will be shared through the Ocean Wave Studio Discord."
+      "Follow development, testing news, screenshots, and future game updates through the Ocean Wave Studio Discord."
   }
+];
+
+const process = [
+  ["01", "Build", "Shape the core gameplay loop, tools, maps, and first playable systems."],
+  ["02", "Polish", "Improve visuals, UI, lighting, performance, and the feeling of each action."],
+  ["03", "Test", "Use feedback to find what feels unclear, slow, boring, or unfinished."],
+  ["04", "Update", "Keep improving the game with new content, fixes, previews, and community ideas."]
 ];
 
 const app = document.getElementById("app");
 
-function icon(name) {
-  const icons = {
-    discord:
-      '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 13.5c1.7 1.2 6.3 1.2 8 0"/><path d="M8.7 9.6h.1M15.2 9.6h.1"/><path d="M7.5 17.5c-1.6-.4-2.8-1-3.5-1.8.3-4.7 1.8-8 4.4-9.7 1.3.2 2.4.6 3.1 1.1h1c.8-.5 1.8-.9 3.1-1.1 2.6 1.7 4.1 5 4.4 9.7-.7.8-1.9 1.4-3.5 1.8l-.8-1.4c-2.3.7-5.1.7-7.4 0l-.8 1.4Z"/></svg>',
-    arrow:
-      '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>',
-    wave:
-      '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 15c2.2 0 2.2-2 4.4-2s2.2 2 4.4 2 2.2-2 4.4-2 2.2 2 4.4 2"/><path d="M3 9c2.2 0 2.2-2 4.4-2s2.2 2 4.4 2 2.2-2 4.4-2 2.2 2 4.4 2"/></svg>',
-    spark:
-      '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 1.7 6.3L20 10l-6.3 1.7L12 18l-1.7-6.3L4 10l6.3-1.7L12 2Z"/><path d="m19 15 .8 2.7L22 18.5l-2.2.8L19 22l-.8-2.7-2.2-.8 2.2-.8L19 15Z"/></svg>',
-    clock:
-      '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>'
-  };
-  return icons[name] || "";
-}
-
-function gameCard(game) {
+function serviceCard(item) {
   return `
-    <article class="game-card reveal">
-      <div class="game-art">
-        <img src="${game.image}" alt="${game.title} artwork">
-        <div class="game-badge">${game.status}</div>
-      </div>
-      <div class="game-body">
-        <p class="eyebrow">${game.type}</p>
-        <h3>${game.title}</h3>
-        <p>${game.summary}</p>
-        <div class="chips">
-          ${game.details.map((detail) => `<span>${detail}</span>`).join("")}
-        </div>
-      </div>
-    </article>
-  `;
-}
-
-function peekCard(item) {
-  return `
-    <article class="info-card reveal">
-      <div class="card-icon">${icon("spark")}</div>
+    <article class="service-card section-reveal">
+      <span class="service-index">${item.index}</span>
       <h3>${item.title}</h3>
       <p>${item.text}</p>
     </article>
   `;
 }
 
-function updateItem(item) {
+function updateCard(item) {
   return `
-    <article class="update-item reveal">
-      <div>
-        <span>${item.date}</span>
-        <h3>${item.title}</h3>
-      </div>
+    <article class="price-card section-reveal">
+      <p class="price-label">${item.label}</p>
+      <h3>${item.title}</h3>
       <p>${item.text}</p>
+      <a class="mini-link" href="${discordUrl}" target="_blank" rel="noreferrer">View Discord</a>
+    </article>
+  `;
+}
+
+function processStep([number, title, text]) {
+  return `
+    <article class="timeline-step section-reveal">
+      <span>${number}</span>
+      <h3>${title}</h3>
+      <p>${text}</p>
     </article>
   `;
 }
 
 app.innerHTML = `
-  <header class="site-header">
+  <header class="site-header" data-header>
     <a class="brand" href="#top" aria-label="Ocean Wave Studio home">
-      <img src="/assets/ocean-wave-logo.png" alt="">
-      <span>
-        <b>Ocean Wave Studio</b>
-        <small>Roblox Games</small>
-      </span>
+      <img class="brand-logo" src="/assets/ocean-wave-logo.png" alt="" aria-hidden="true">
+      <span>Ocean Wave Studio</span>
     </a>
-    <nav class="nav-links" aria-label="Main navigation">
+    <nav class="nav" data-nav>
+      <a href="#services">Studio</a>
       <a href="#games">Games</a>
       <a href="#sneakpeeks">Sneakpeeks</a>
       <a href="#updates">Updates</a>
-      <a href="#mission">Mission</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Discord</a>
     </nav>
-    <a class="discord-button" href="${discordUrl}" target="_blank" rel="noreferrer">
-      ${icon("discord")}
-      Discord
-    </a>
+    <a class="header-cta" href="${discordUrl}" target="_blank" rel="noreferrer">Join Discord</a>
+    <button class="menu-toggle" type="button" aria-label="Open menu" data-menu>
+      <span></span>
+      <span></span>
+    </button>
   </header>
 
   <main id="top">
-    <section class="hero" aria-labelledby="hero-title">
-      <img class="hero-bg" src="/assets/ocean-wave-banner.png" alt="">
-      <div class="hero-shade"></div>
+    <section class="hero section-reveal">
+      <div class="hero-media" aria-hidden="true"></div>
+      <div class="hero-shade" aria-hidden="true"></div>
       <div class="hero-content">
-        <img class="hero-logo" src="/assets/ocean-wave-logo.png" alt="Ocean Wave Studio logo">
-        <p class="eyebrow">Made in Roblox</p>
-        <h1 id="hero-title">Ocean Wave Studio</h1>
+        <h1>Realistic Roblox games that look premium.</h1>
         <p class="hero-copy">
-          We create realistic, good-looking Roblox games with polished systems,
-          memorable maps, and gameplay that feels smooth from the first click.
+          Ocean Wave Studio builds good-looking Roblox experiences with polished
+          systems, detailed worlds, satisfying progression, and a community that
+          sees the work as it grows.
         </p>
         <div class="hero-actions">
-          <a class="primary-action" href="#games">
-            Games
-            ${icon("arrow")}
-          </a>
-          <a class="secondary-action" href="${discordUrl}" target="_blank" rel="noreferrer">
-            ${icon("discord")}
-            Join Discord
-          </a>
+          <a class="button primary" href="#games">View Games</a>
+          <a class="button secondary" href="${discordUrl}" target="_blank" rel="noreferrer">Join Discord</a>
         </div>
       </div>
-      <div class="hero-strip" aria-label="Studio focus">
-        <span>Realistic gameplay</span>
-        <span>Good-looking worlds</span>
-        <span>Community focused</span>
-        <span>Performance driven</span>
-      </div>
     </section>
 
-    <section class="section intro-section" id="mission">
-      <div class="section-heading reveal">
-        <p class="eyebrow">What We Strive For</p>
-        <h2>Roblox games that look clean, feel real, and keep players coming back.</h2>
-      </div>
-      <div class="mission-grid">
-        <article class="mission-item reveal">
-          <span>${icon("wave")}</span>
-          <h3>Realistic Feel</h3>
-          <p>We build grounded systems, readable tools, and satisfying progress instead of random filler.</p>
-        </article>
-        <article class="mission-item reveal">
-          <span>${icon("spark")}</span>
-          <h3>Visual Quality</h3>
-          <p>Lighting, materials, UI, and map details matter because the game should look worth playing.</p>
-        </article>
-        <article class="mission-item reveal">
-          <span>${icon("clock")}</span>
-          <h3>Long-Term Updates</h3>
-          <p>We want each game to grow through feedback, better gameplay loops, and community ideas.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section games-section" id="games">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Games</p>
-        <h2>Current Ocean Wave Studio projects.</h2>
-      </div>
-      <div class="games-grid">
-        ${games.map(gameCard).join("")}
-      </div>
-    </section>
-
-    <section class="section sneak-section" id="sneakpeeks">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Sneakpeeks</p>
-        <h2>Early looks at what we are shaping behind the scenes.</h2>
-      </div>
-      <div class="info-grid">
-        ${sneakPeeks.map(peekCard).join("")}
-      </div>
-    </section>
-
-    <section class="section updates-section" id="updates">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Updates</p>
-        <h2>Studio news and development notes.</h2>
-      </div>
-      <div class="updates-list">
-        ${updates.map(updateItem).join("")}
-      </div>
-    </section>
-
-    <section class="discord-section reveal">
+    <section class="stats section-reveal" aria-label="Studio highlights">
       <div>
-        <p class="eyebrow">Community</p>
-        <h2>Follow development and get new sneakpeeks first.</h2>
+        <strong>1</strong>
+        <span>game in development</span>
       </div>
-      <a class="primary-action" href="${discordUrl}" target="_blank" rel="noreferrer">
-        ${icon("discord")}
-        Join Ocean Wave Discord
-      </a>
+      <div>
+        <strong>Real</strong>
+        <span>gameplay direction</span>
+      </div>
+      <div>
+        <strong>Clean</strong>
+        <span>visual polish</span>
+      </div>
+      <div>
+        <strong>Discord</strong>
+        <span>first sneakpeeks</span>
+      </div>
+    </section>
+
+    <section class="intro section-reveal">
+      <p class="section-kicker">Built for Roblox players</p>
+      <h2>One studio focused on sharp, memorable Roblox worlds.</h2>
+      <p>
+        We care about the details players notice: lighting, UI, tools, maps,
+        pacing, progression, and the feeling of finishing a job cleanly. Ocean
+        Wave Studio is starting with Sealcoating Simulator and growing from there.
+      </p>
+    </section>
+
+    <section class="services" id="services">
+      <div class="section-head section-reveal">
+        <p class="section-kicker">Studio</p>
+        <h2>Roblox development with a premium finish.</h2>
+      </div>
+      <div class="service-grid">
+        ${services.map(serviceCard).join("")}
+      </div>
+    </section>
+
+    <section class="feature section-reveal" id="games">
+      <div class="feature-copy">
+        <p class="section-kicker">The game board</p>
+        <h2>Sealcoating Simulator is the first Ocean Wave project.</h2>
+        <p>
+          Take realistic parking-lot jobs, use sealcoating tools, upgrade your
+          setup, and turn rough asphalt into clean blacktop. The goal is a game
+          that looks good and feels satisfying every time you complete a job.
+        </p>
+      </div>
+      <div class="game-board" aria-label="Sealcoating Simulator preview">
+        <img src="/assets/sealcoating-simulator.png" alt="Sealcoating Simulator artwork">
+      </div>
+    </section>
+
+    <section class="feature board-section section-reveal" id="sneakpeeks">
+      <div class="feature-copy">
+        <p class="section-kicker">Sneakpeeks</p>
+        <h2>Development previews before release.</h2>
+        <p>
+          The Discord is where new screenshots, progress notes, testing news,
+          and early ideas will show up first.
+        </p>
+      </div>
+      <div class="work-board" aria-label="Ocean Wave Studio development board">
+        <div class="board-row">
+          <span>Game</span>
+          <strong>Sealcoating Simulator</strong>
+        </div>
+        <div class="board-row">
+          <span>Focus</span>
+          <strong>Realistic asphalt jobs</strong>
+        </div>
+        <div class="board-row">
+          <span>Status</span>
+          <strong>In development</strong>
+        </div>
+        <div class="board-row">
+          <span>Preview</span>
+          <strong>Discord first</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="packages" id="updates">
+      <div class="section-head section-reveal">
+        <p class="section-kicker">Updates</p>
+        <h2>What Ocean Wave Studio is building right now.</h2>
+      </div>
+      <div class="package-grid is-active">
+        ${updates.map(updateCard).join("")}
+      </div>
+    </section>
+
+    <section class="process" id="process">
+      <div class="section-head section-reveal">
+        <p class="section-kicker">How it works</p>
+        <h2>Build, polish, test, and keep improving.</h2>
+      </div>
+      <div class="timeline">
+        ${process.map(processStep).join("")}
+      </div>
+    </section>
+
+    <section class="cta section-reveal" id="contact">
+      <p class="section-kicker">Ready to follow development</p>
+      <h2>Join the Discord and watch Ocean Wave Studio grow.</h2>
+      <p>
+        See sneakpeeks, updates, testing notes, and what is coming next for
+        Sealcoating Simulator.
+      </p>
+      <div class="contact-actions">
+        <a class="button primary" href="${discordUrl}" target="_blank" rel="noreferrer">Join Discord</a>
+        <a class="button secondary" href="#games">View Game</a>
+      </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <img src="/assets/ocean-wave-logo.png" alt="">
+  <footer class="footer">
     <span>Ocean Wave Studio</span>
-    <small>Building realistic Roblox games.</small>
+    <span>Copyright 2026 Ocean Wave Studio. All rights reserved.</span>
   </footer>
 `;
+
+const header = document.querySelector("[data-header]");
+const menu = document.querySelector("[data-menu]");
+
+menu.addEventListener("click", () => {
+  header.classList.toggle("nav-open");
+});
+
+document.querySelectorAll(".nav a").forEach((link) => {
+  link.addEventListener("click", () => header.classList.remove("nav-open"));
+});
 
 const observer = new IntersectionObserver(
   (entries) => {
@@ -241,7 +279,7 @@ const observer = new IntersectionObserver(
       if (entry.isIntersecting) entry.target.classList.add("is-visible");
     });
   },
-  { threshold: 0.18 }
+  { threshold: 0.14 }
 );
 
-document.querySelectorAll(".reveal").forEach((node) => observer.observe(node));
+document.querySelectorAll(".section-reveal").forEach((node) => observer.observe(node));
