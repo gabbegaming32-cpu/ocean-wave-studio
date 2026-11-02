@@ -1,24 +1,21 @@
-# Vanta Productions — Rebuild
+# Vanta Productions — Render-ready website
 
-A responsive static website for Vanta Productions with four pages:
+This folder contains the complete website and a minimal Node.js server that works on a Render **Web Service**. No build step or external Node packages are required.
 
-- `index.html` — Home
-- `project.html` — Project Dont Be The Biggest
-- `studio.html` — Studio
-- `team.html` — Team: Vanta, CJ, Soul and Memphis
+## Upload to the *existing* GitHub repository
 
-The footer across all four pages says **© 2026 Vanta Productions. All rights reserved.**
+1. Extract this ZIP **on your computer**.
+2. Upload the **contents of this folder** directly to the **root** of the GitHub repository connected to Render (not inside another subfolder, and not the ZIP itself).
+3. Check that `index.html`, `server.js`, and `package.json` sit together in the repository root, alongside `styles.css`, `site.js`, the other HTML pages, and the `assets/` folder.
+4. Commit the files to the `main` branch.
+5. In Render, choose **Manual Deploy → Deploy latest commit** on the existing service. Do not delete the Render service or change the custom domain.
 
-## View
+**Render settings for a Node Web Service**: Runtime Node, Start Command `npm start` (or `node server.js`), Root Directory blank (repository root). An existing `npm install` build command is harmless; no build is needed.
 
-Open `index.html` directly, or run `python -m http.server 8000` in this folder and open `http://localhost:8000`.
+If the repository still contains an older `vanta-productions-rebuild/` folder, the server prefers a Vanta homepage in the repository root. It falls back to the nested Vanta folder when the root homepage is still Ocean Wave Studio. You don't have to delete the old folder to get the new site working.
 
-## Publish
+## Local testing
 
-Upload the entire folder to any static hosting service (GitHub Pages, Cloudflare Pages, Netlify, or similar). No backend or external scripts are required.
+Run `npm start`, then open `http://localhost:3000`.
 
-## Reference note
-
-The supplied site `https://reactstudios.com/` uses access restrictions that prevented a reliable visual inspection. This version is an original dark game-studio-inspired redesign, **not a pixel-accurate clone of the reference**. For an exact visual match, provide desktop/mobile screenshots or a short screen recording of the reference site showing interactions.
-
-The logo assets were supplied by the client. All other visuals are CSS-generated and are original to this build.
+Pages: Home (`index.html`), Project (`project.html`), Studio (`studio.html`), Team (`team.html`). Footer: © 2026 Vanta Productions. All rights reserved.
