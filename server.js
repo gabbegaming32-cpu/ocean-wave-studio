@@ -6,7 +6,6 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const publicDir = path.join(__dirname, "vanta-productions-rebuild");
-const host = process.env.HOST || "0.0.0.0";
 const host = process.env.HOST || "127.0.0.1";
 
 const types = new Map([
