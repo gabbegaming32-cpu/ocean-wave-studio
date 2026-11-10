@@ -1,0 +1,23 @@
+VANTA PRODUCTIONS — NOVEMBER 2026 UPDATE
+
+Includes updated HOME, PROJECTS, STUDIO, TEAM and AFFILIATES pages.
+- 8 members: Vanta, CJ, Soul, Memphis, Void, Fluxxy (Trail Developer), Nick, Nothing
+- New game: The Ultimate Grind — Coming Soon
+- Official affiliate partner Vanta Studios — https://discord.gg/T9tNRSS2sS
+- Footer: © 2026 Vanta Productions. All rights reserved.
+
+HOW TO PUBLISH (NO SERVER CODE CHANGE NEEDED)
+1. Back up your GitHub repository first using Code > Download ZIP.
+2. Extract THIS ZIP onto your computer. DO NOT UPLOAD THE ZIP BY ITSELF.
+3. Open github.com/gabbegaming32-cpu/ocean-wave-studio (branch main).
+4. Upload/replace files at the repository ROOT, including the vanta-productions-rebuild folder.
+   (The ZIP contains the same website in both locations to work with either server.js setup.)
+5. Commit changes to main.
+6. In Render, select ocean-wave-studio > Manual Deploy > Deploy latest commit.
+7. Check oceanstudio.xyz after Render shows Live; hard-refresh the page.
+
+IMPORTANT:
+- Do not delete or replace your working server.js or package.json.
+- Do not change Render's Start Command, domain or DNS settings.
+- If you previously made custom changes to HTML/CSS after the earlier Vanta download, back those files up first; this update replaces those website files.
+- The archive contains two copies of the website intentionally (one at root, one nested).
